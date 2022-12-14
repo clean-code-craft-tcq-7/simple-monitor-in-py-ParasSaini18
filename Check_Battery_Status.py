@@ -12,8 +12,12 @@ def charge_rate_check(charge_rate):
     if charge_rate > 0.8:
         print('Charge rate is out of range!')
         return False
-    return True    
+    return True  
+def temperature_and_soc_check(temperature, soc):
+    if temperature_check(temperature) == False or soc_check(soc) == False:
+        return False
+    return True  
 def battery_is_ok(temperature, soc, charge_rate):
-    if temperature_check(temperature) == False or soc_check(soc) == False or charge_rate_check(charge_rate) == False:
+    if temperature_and_soc_check(temperature, soc) == False or charge_rate_check(charge_rate) == False:
         return False
     return True
